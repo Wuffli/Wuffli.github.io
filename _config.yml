@@ -27,7 +27,6 @@ url: "lunalorea.ch" # the base hostname & protocol for your site, e.g. http://ex
 github_username:  Wuffli
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 

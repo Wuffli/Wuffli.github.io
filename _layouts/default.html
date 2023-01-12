@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ "assets\css\main.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "assets\css\monokai.css" | relative_url }}">
+    <link rel="icon" type="image/png" href="{{ "assets\images\favicon.png" | relative_url }}">
+  </head>
+  <body>
+    <header class="header-area" style="background-image: url('{{ "assets\images\" | relative_url }}{{ page.header-image }}');">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+      </nav>
+      <div class="title">
+        <h1 class="title">{{ page.title }}</h1>
+        <span class="title">{{ page.description }}</span>
+      </div>
+    </header>
+
+    <section class="main-area">
+      {{ content }}
+    </section>
+
+    <footer class="footer-area">
+      <div class="footer-content">
+        <div><object data="{{ "assets\images\wuffli.svg" | relative_url }}" width="15rem" height="15rem"> </object> &nbsp; &copy; 2023 Luna Lorea Zehnder</div>
+        <div>asdasdasd</div>
+      </div>
+    </footer>
+  </body>
+</html>

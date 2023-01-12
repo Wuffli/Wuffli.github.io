@@ -1,0 +1,85 @@
+
+:root {
+    --bg-1: #252526;
+    --bg-2: #323233;
+    --bg-3: #1e1e1e;
+
+    --font-color-1: #fff;
+}
+
+body {
+    margin: 0;
+    color: var(--font-color-1);
+    background: var(--bg-2);
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr minmax(230px, 700px) 1fr;
+    grid-template-rows: clamp(100px, 20vw, 350px) 1fr 5rem;
+    grid-template-areas:
+    "header header header"
+    "...... main   ......"
+    "footer footer footer";
+}
+
+.header-area { grid-area: header; }
+.main-area { grid-area: main; }
+.footer-area { grid-area: footer; }
+
+header{
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.title {
+    text-align: center;
+    text-shadow: 0px 0px 20px rgba(0,0,0,0.78);
+}
+
+h1.title {
+    color: var(--font-color-1);
+    font-size: clamp(2rem, 7vw, 7rem);
+    margin-bottom: 0;
+}
+
+span.title {
+}
+
+
+
+.footer-area { 
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr minmax(270px, 700px) 1fr;
+    grid-template-areas:
+    ". footer-content .";
+    background: var(--bg-1);
+}
+
+.footer-content { grid-area: footer-content;}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div pre.highlight {
+    margin: 1rem 3rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-3);
+    display: block;
+    padding: .8rem 1rem;
+    box-shadow: inset 0 0 10px #000;
+    -webkit-overflow-scrolling: touch;
+}
+
+pre.highlight code span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+}
