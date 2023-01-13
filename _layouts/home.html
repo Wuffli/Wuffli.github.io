@@ -2,8 +2,18 @@
 layout: default
 ---
 
-<h2>{{ page.title }}</h2>
-<h4>{{ page.date }}</h4>
+<div>
+    {{ content }}
+</div>
 
-
-{{ content }}
+<div>
+    <ul class="sidebar-area">
+        {% for post in site.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title}}</a>
+                <span class="postDate">{{ post.date | date: "%b %-d, %Y" }}</span>
+                <p> {{ post.description }} </p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

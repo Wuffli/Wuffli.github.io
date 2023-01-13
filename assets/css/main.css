@@ -17,12 +17,17 @@ body {
 body {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: 1fr minmax(230px, 700px) 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: clamp(100px, 20vw, 350px) 1fr 5rem;
     grid-template-areas:
     "header header header"
     "...... main   ......"
     "footer footer footer";
+}
+
+section.main-area div p {
+    text-align: justify;
+    color: blue;
 }
 
 .header-area { grid-area: header; }
@@ -46,10 +51,6 @@ h1.title {
     font-size: clamp(2rem, 7vw, 7rem);
     margin-bottom: 0;
 }
-
-span.title {
-}
-
 
 
 .footer-area { 
