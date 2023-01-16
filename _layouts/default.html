@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.png" | relative_url }}">
+  </head>
+  <body>
+    <header>
+        <div class="header" style="background-image: url( {{ "/assets/images/" | relative_url }}{% if page.header_img %}{{ page.header_img }}{% endif %}{% unless page.header_img %}default.jpg{% endunless %} );">
+          {% include navigation.html %}
+          {% include title.html %}
+        </div>
+    </header>
+
+    <section class="main-content">
+      <div>
+        {{ content }}
+      </div>
+    </section>
+
+  </body>
+</html>

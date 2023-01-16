@@ -1,0 +1,8 @@
+<nav class='navigation'>
+  {% for item in site.data.navigation %}
+    <div class="navigationlink {% if page.url == item.link %}navCurrentSite{% endif %}">
+      <a href="{{ item.link }}">{{ item.name }}</a>
+    </div>
+  {% endfor %}
+  <div class="navfiller"> </div>
+</nav>
