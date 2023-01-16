@@ -1,7 +1,11 @@
+$header-hight: 20em;
+$overlaybackground: rgba(255, 255, 255, 0.185);
+
 .header {
     background-position: center;
     background-position-x: center;
-    height: 40vh;
+    background-size: cover;
+    height: $header-hight;
 }
 
 .header * {
@@ -11,13 +15,11 @@
 }
 
 .header h1 {
-    padding-top: 7.5vh;
     font-weight: 900;
     font-size: 3.5rem;
 }
 
 .header h4 {
-    padding-bottom: 10vh;
     font-weight: 600;
     font-size: 1rem;
 }
@@ -25,34 +27,169 @@
 
 .navigation {
     display: flex;
-    border-top: .3rem solid $bg2-color-second;
-    border-left: .5rem solid $bg2-color-second;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
-.navigationlink {
-    background-color: $bg2-color-second;
+.navigationlink button {
     padding: 1rem 1.25rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    
+    text-shadow: 1px 0px 30px rgba(0,0,0,1);
 }
 
-.navigationlink a {
-    text-decoration: none;
-}
+
 
 .navigationlink:hover:not(.navCurrentSite){
     background-color: $bg3-color-accent;
-    color: $font2-color-third;
+}
+
+.navigationlink:hover:not(.navCurrentSite) a button {
+    color: $font1-color-main;
 }
 
 .navCurrentSite {
     background-color: transparent;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.185);
+    }
 }
 
-.navCurrentSite a {
+.navCurrentSite a button {
     color: $bg3-color-accent;
 }
 
 .navfiller {
-    background-color: $bg2-color-second;
-    padding: 1rem 1.25rem;
     width: 100%;
+}
+
+.searchbar {
+    $size: 1.4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 1rem;
+    background-color: transparent;
+    border: 2px solid $bg1-color-main;
+    border-radius: 500px;
+
+    height: min($size);
+    width: 20rem;
+
+    position: relative;
+
+    &:focus-within {
+        border-color: $bg3-color-accent;
+    }
+    
+
+    &__input {
+        color: $font2-color-third;
+        text-align: left;
+        padding-left: calc($size / 2.5);
+        height: fit-content;
+        width: 100%;
+        background-color: inherit;
+        border: none;
+        
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    &__button {
+        height: fit-content;
+        background-color: transparent;
+        border: none;
+        margin-right: calc($size / 2);
+        cursor: pointer;
+    }
+
+    &__results {
+        position: absolute;
+        overflow-y: scroll;
+        margin-top: calc($header-hight - 20px);
+        height: 0;
+
+        scrollbar-width: 2px;
+
+        // Tutorial => slug.vercel.app/s/scrollbar
+
+        @mixin scroll-style($size: 10px,
+        $thumb: none,
+        $thumb-color: grey,
+        $thumb-radius: 10px,
+        $track-color: transparent,
+        $track-radius: 10px) {
+
+        // Respaldo para Firefox
+        scrollbar-color: $thumb-color $track-color;
+        scrollbar-width: thin;
+
+        // Navegadores basados en webkit
+        &::-webkit-scrollbar {
+            width: $size;
+            height: $size;
+                &-track {
+                    background-color: $track-color;
+                    border-radius: $track-radius;
+                }
+                &-thumb {
+                    background-color: $thumb-color;
+                    background-image: $thumb;
+                    border-radius: $thumb-radius;
+                }
+            }
+        }
+
+        @include scroll-style(
+            $size: var(--scroll-size, 10px),
+
+            $thumb:  var(--scroll-thumb, none),
+            $thumb-color: var(--scroll-thumb-color, grey),
+            $thumb-radius: var(--scroll-thumb-radius, var(--scroll-radius)),
+        
+            $track-color: var(--scroll-track, transparent),
+            $track-radius: var(--scroll-track-radius, var(--scroll-radius)),
+        );
+
+        --scroll-size: 8px;
+        --scroll-radius: 10px;
+        --scroll-track: rgb(255 255 255 / 10%);
+        --scroll-thumb-color: rgb(0 0 0 / 80%);
+
+
+
+        & a h3 {
+            text-align: left;
+            margin: .5rem 0 0 0;
+        }
+        
+        & a p {
+            text-align: left;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin: 0;
+        }
+    }
+
+    &:focus-within &__results{
+
+        height: auto;
+        max-height: calc($header-hight - 5em);
+        background-color: $overlaybackground;
+        padding: .2em .4em; 
+
+    }
 }
