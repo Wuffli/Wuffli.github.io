@@ -1,0 +1,33 @@
+/* Colorscheme */
+$bg1-color-main: #fff;
+$bg2-color-second: #1e1e1e; 
+$bg3-color-accent: #E0A287;
+
+$font1-color-main: #000;
+$font2-color-second: #E0A287;
+$font2-color-third: #fff;
+
+
+
+/* base css */
+body {
+    font-family: 'Nunito Sans';
+    background-color: $bg1-color-main;
+    color: $font1-color-main;
+    margin: 0;
+}
+
+code {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr clamp(15em, 70vw, 60em) 1fr;
+    grid-template-areas: "..... main-area ....."
+}
+
+.main-content div {
+    grid-area: main-area;
+}
+
