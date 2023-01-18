@@ -1,9 +1,6 @@
 - name: Home
   link: /
-  linkhtml: /
 - name: About
-  link: /about/
-  linkhtml: /about.html
+  link: /about
 - name: Projects
   link: /projects
-  linkhtml: /projects.html

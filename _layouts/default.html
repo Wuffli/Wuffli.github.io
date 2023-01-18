@@ -8,18 +8,20 @@
     <script src="https://kit.fontawesome.com/0c31549af4.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-        <div class="header" style="background-image: url( {{ "/assets/images/" | relative_url }}{% if page.header_img %}{{ page.header_img }}{% endif %}{% unless page.header_img %}default.jpg{% endunless %} );">
-          {% include navigation.html %}
-          {% include title.html %}
+    <div class="content">
+      <header>
+          <div class="header" style="background-image: url( {{ "/assets/images/" | relative_url }}{% if page.header_img %}{{ page.header_img }}{% endif %}{% unless page.header_img %}default.jpg{% endunless %} );">
+            {% include navigation.html %}
+            {% include title.html %}
+          </div>
+      </header>
+
+      <section class="main-content">
+        <div>
+          {{ content }}
         </div>
-    </header>
-
-    <section class="main-content">
-      <div>
-        {{ content }}
-      </div>
-    </section>
-
+      </section>
+    </div>
+    <footer>{% include footer.html %}</footer>
   </body>
 </html>

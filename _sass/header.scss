@@ -1,5 +1,6 @@
 $header-hight: 20em;
 $overlaybackground: rgba(255, 255, 255, 0.185);
+$overlaybackground2: rgba(0, 255, 255, 1);
 
 .header {
     background-position: center;
@@ -9,7 +10,7 @@ $overlaybackground: rgba(255, 255, 255, 0.185);
 }
 
 .header * {
-    color: $font2-color-third;
+    color: $font3-color-third;
     text-align: center;
     text-shadow: 1px 0px 30px rgba(0,0,0,1);
 }
@@ -92,7 +93,7 @@ $overlaybackground: rgba(255, 255, 255, 0.185);
     
 
     &__input {
-        color: $font2-color-third;
+        color: $font3-color-third;
         text-align: left;
         padding-left: calc($size / 2.5);
         height: fit-content;
@@ -167,11 +168,38 @@ $overlaybackground: rgba(255, 255, 255, 0.185);
         --scroll-track: rgb(255 255 255 / 10%);
         --scroll-thumb-color: rgb(0 0 0 / 80%);
 
-
+        & a {
+            color: inherit;
+            margin-top: auto;
+            text-decoration: none;
+        }
 
         & a h3 {
             text-align: left;
             margin: .5rem 0 0 0;
+            position: relative;
+            width: fit-content;
+            
+    
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background-color: currentColor;
+    
+                transform: scaleX(0);
+                transform-origin: left;
+    
+                transition: transform 250ms ease-in-out;
+                
+            }
+    
+            &:hover::after {
+                transform: scaleX(1);
+            }
         }
         
         & a p {
@@ -184,12 +212,21 @@ $overlaybackground: rgba(255, 255, 255, 0.185);
         }
     }
 
-    &:focus-within &__results{
-
+    &:focus-within:has(input:not(:placeholder-shown)) > &__results{
+        
         height: auto;
         max-height: calc($header-hight - 5em);
         background-color: $overlaybackground;
-        padding: .2em .4em; 
-
+        padding: .2em .4em;
     }
+
+    &:focus-within > &__results{
+        
+        height: auto;
+        max-height: calc($header-hight - 5em);
+        background-color: $overlaybackground;
+        padding: .2em .4em;
+    }
+
+    
 }

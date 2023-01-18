@@ -5,7 +5,7 @@ $bg3-color-accent: #E0A287;
 
 $font1-color-main: #1b1b1b;
 $font2-color-second: #E0A287;
-$font2-color-third: #fff;
+$font3-color-third: #fff;
 
 
 
@@ -15,6 +15,9 @@ body {
     background-color: $bg1-color-main;
     color: $font1-color-main;
     margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "content" "footer";
 }
 
 code {
@@ -24,10 +27,16 @@ code {
 .main-content {
     display: grid;
     grid-template-columns: 1fr clamp(15em, 70vw, 60em) 1fr;
-    grid-template-areas: "..... main-area ....."
+    grid-template-areas: "..... main-area .....";
 }
 
 .main-content div {
     grid-area: main-area;
 }
+
+.content { 
+    grid-area: content;
+    min-height: 100vh;
+}
+footer { grid-area: footer; }
 

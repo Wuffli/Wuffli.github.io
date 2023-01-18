@@ -1,0 +1,15 @@
+<div class="footer">
+    <div class="__site-identity">
+        <a href="{{ base.url }}"> <img src="{{ "/assets/images/wuffli_inversed.svg" | relative_url }}" alt=""></a>
+        <span>
+            © 2023 Luna Zehnder
+        </span>
+    </div>
+
+    {% for item in site.data.footer %}
+    <div>
+        <a href="{{ item.link }}" class="links"><span>{{ item.name }}</span></a>
+    </div>
+    {% endfor %}
+
+</div>
