@@ -1,17 +1,19 @@
-<div>
+<div class="posts">
     {% for post in site.posts %}
-    <a href="{{ post.url }}"> 
-        {% if post.title %} 
-            <h3>
-                {{ post.title }}
-            </h3> 
-        {% endif %}
-
-        {% if post.description %} 
-            <p>
-                {{ post.description }}
-            </p> 
-        {% endif %}
-    </a>
+    <div class="posts__part">
+        <a href="{{ post.url }}"> 
+            {% if post.title %} 
+                <h3>
+                    {{ post.title }}
+                </h3> 
+            {% endif %}
+    
+            {% if post.description %} 
+                <p>
+                    {{ post.description }}
+                </p> 
+            {% endif %}
+        </a>
+    </div>
     {% endfor %}
 </div>
