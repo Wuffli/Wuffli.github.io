@@ -1,6 +1,8 @@
 $header-hight: 20em;
-$overlaybackground: rgba(255, 255, 255, 0.185);
-$overlaybackground2: rgba(0, 255, 255, 1);
+
+header {
+    margin-bottom: 1rem;
+}
 
 .header {
     background-position: center;
@@ -67,7 +69,7 @@ $overlaybackground2: rgba(0, 255, 255, 1);
 }
 
 .navfiller {
-    width: 100%;
+    margin: auto;
 }
 
 .searchbar {
@@ -115,14 +117,8 @@ $overlaybackground2: rgba(0, 255, 255, 1);
         cursor: pointer;
     }
 
+    // Scrollbar settings
     &__results {
-        position: absolute;
-        overflow-y: scroll;
-        margin-top: calc($header-hight - 20px);
-        height: 0;
-
-        scrollbar-width: 2px;
-
         // Tutorial => slug.vercel.app/s/scrollbar
 
         @mixin scroll-style($size: 10px,
@@ -167,21 +163,35 @@ $overlaybackground2: rgba(0, 255, 255, 1);
         --scroll-radius: 10px;
         --scroll-track: rgb(255 255 255 / 10%);
         --scroll-thumb-color: rgb(0 0 0 / 80%);
+    }
 
-        & a {
-            color: inherit;
-            margin-top: auto;
+    &__results {
+        position: absolute;
+        transform: translate(0%, calc(50% + $size));
+        height: 0;
+        overflow-y: scroll;
+
+        text-align: left;
+
+        & * {
+            text-shadow: none;
             text-decoration: none;
         }
 
-        & a h3 {
+        & a {
+        }
+
+        & a h4 {
+
             text-align: left;
-            margin: .5rem 0 0 0;
             position: relative;
             width: fit-content;
+            margin: 0;
+            font-weight: 800;
             
-    
-            &::after {
+            // underline Link on hover
+            & {
+                &::after {
                 content: '';
                 position: absolute;
                 left: 0;
@@ -200,32 +210,26 @@ $overlaybackground2: rgba(0, 255, 255, 1);
             &:hover::after {
                 transform: scaleX(1);
             }
+            }
+            
         }
         
         & a p {
             text-align: left;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            margin: 0;
+            margin: 0 0 .5rem;
+            font-size: smaller;
         }
-    }
-
-    &:focus-within:has(input:not(:placeholder-shown)) > &__results{
-        
-        height: auto;
-        max-height: calc($header-hight - 5em);
-        background-color: $overlaybackground;
-        padding: .2em .4em;
     }
 
     &:focus-within > &__results{
         
         height: auto;
-        max-height: calc($header-hight - 5em);
-        background-color: $overlaybackground;
-        padding: .2em .4em;
+        max-height: calc($header-hight - 4rem);
+
     }
 
     
