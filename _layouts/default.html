@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.png" | relative_url }}">
     <script src="https://kit.fontawesome.com/0c31549af4.js" crossorigin="anonymous"></script>
-
     {% include meta.html %}
 
   </head>
@@ -19,11 +18,12 @@
       </header>
 
       <section class="main-content">
-        <div>
-          {{ content }}
-        </div>
+        {{ content }}
       </section>
     </div>
     <footer>{% include footer.html %}</footer>
+    <script type="application/json" id="search-data">{% include post-feed.html %}</script>
+    <script src="/assets/js/search.js"></script>
   </body>
+
 </html>

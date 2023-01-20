@@ -1,0 +1,17 @@
+<div class="tags">
+    {% if page.layout == "home" %}
+        {% assign tagList = site.tags %}
+    {% else %}
+        {% assign tagList = page.tags %}
+    {% endif %}
+
+    {% for tag in tagList %}
+        <div>
+            <button>{% if page.layout == "home" %}
+            {{ tag[0] }}
+            {% else %}
+            {{ tag }}
+            {% endif %}</button>
+        </div>
+    {% endfor %}
+</div>

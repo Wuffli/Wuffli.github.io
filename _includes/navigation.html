@@ -12,6 +12,7 @@
       class="searchbar__input"
       placeholder="search..."
       aria-label="search"
+      id="search-bar"
     />
 
     <button class="searchbar__button">
@@ -21,22 +22,8 @@
 
       </i>
     </button>
-    <div class="searchbar__results scroll">
-      {% for post in site.posts %}
-    <a href="{{ post.url }}"> 
-        {% if post.title %} 
-            <h3>
-                {{ post.title }}
-            </h3> 
-        {% endif %}
-
-        {% if post.description %} 
-            <p>
-                {{ post.description }}
-            </p> 
-        {% endif %}
-    </a>
-    {% endfor %}
+    <div class="searchbar__results scroll" id="search-results">
+      
     </div>
   </div>
 </nav>

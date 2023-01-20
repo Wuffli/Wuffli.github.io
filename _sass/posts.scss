@@ -1,16 +1,23 @@
-.posts {
+.metaData {
     display: flex;
-    justify-content: space-around;
-    
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 
-    &__part {
-        flex: 1 1 0;
-        width: 0;
+    &__tags {
+        display: flex;
+        column-gap: .5rem;
+        align-items: center;
+        max-width: 33%;
+
+        & .tags {
+            overflow: hidden;
+            flex-wrap: nowrap !important;
+        }
+        
+        & button {
+            font-size: x-small;
+        } 
     }
-    &__part a p {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+    
 }
