@@ -1,5 +1,5 @@
 <div class="tags">
-    {% if page.layout == "home" %}
+    {% if page.layout == "home" or page.id == "search" %}
         {% assign tagList = site.tags %}
     {% else %}
         {% assign tagList = page.tags %}
@@ -7,7 +7,7 @@
 
     {% for tag in tagList %}
         <div>
-            <button>{% if page.layout == "home" %}
+            <button>{% if page.layout == "home" or page.id == "search" %}
             {{ tag[0] }}
             {% else %}
             {{ tag }}

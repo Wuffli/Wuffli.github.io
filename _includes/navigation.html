@@ -6,24 +6,27 @@
     </div>
   {% endfor %}
   <div class="navfiller"> </div>
-  <div class="searchbar">
-    <input 
-      type="text"
-      class="searchbar__input"
-      placeholder="search..."
-      aria-label="search"
-      id="search-bar"
-    />
+  {% if page.id != "search" %}
+    <div class="searchbar">
+      <input 
+        type="text"
+        class="searchbar__input"
+        placeholder="search..."
+        aria-label="search"
+        id="search-bar"
+      />
+      <a id="search-button" href="/search">
+        <button class="searchbar__button">
+          <i 
+          class="fa-solid fa-magnifying-glass"
+          >
 
-    <button class="searchbar__button">
-      <i 
-      class="fa-solid fa-magnifying-glass"
-      >
-
-      </i>
-    </button>
-    <div class="searchbar__results scroll" id="search-results">
-      
+          </i>
+        </button>
+      </a>
+      <div class="searchbar__results scroll" id="search-results">
+        
+      </div>
     </div>
-  </div>
+  {% endif %}
 </nav>

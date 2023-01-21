@@ -60,17 +60,29 @@ footer { grid-area: footer; }
     }
 }
 
-@media screen and (min-width: 50rem) {
+@media (min-width: 60rem) {
     .main-content {
         display: flex;
-        column-gap: 2.5rem;
-        translate: 8.75rem;
+        column-gap: 1.5rem;
 
         & .sidepannel {
             min-width: 15rem;
             max-width: 15rem;
             margin-top: 0rem;
         }
+
+        & .mainpannel {
+            width: 60em;
+        }
     }
 }
+
+
+@media all and (min-width: 90rem) {
+    .main-content {
+        translate: 8.75rem;
+        column-gap: 2.5rem;
+    }
+}
+
 

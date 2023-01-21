@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="mainpannel">
+    {{ content }}
+</div>
+
+<div class="sidepannel">
+    <img src="/assets/images/LunaLorea.jpg" alt="Portrait of Luna Lorea">
+
+    {% for social in site.data.socials %}
+        <div>
+            <a href="{{ social.link }}">{{ social.name }}</a>
+        </div>
+    {% endfor %}
+</div>
