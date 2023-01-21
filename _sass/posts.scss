@@ -11,8 +11,15 @@
         max-width: 33%;
 
         & .tags {
-            overflow: hidden;
+            overflow-x: scroll;
             flex-wrap: nowrap !important;
+
+            
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar {
+                display: hidden;
+            }
         }
         
         & button {

@@ -1,0 +1,52 @@
+.searchHeader {
+
+    width: calc(100vw - 5em);
+    max-width: 40em;
+    margin: 5rem auto;
+
+    & .bigSearchbar {
+        $size: 2rem;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        margin-right: 1rem;
+        background-color: transparent;
+        border: 2px solid $bg1-color-main;
+        border-radius: 500px;
+    
+        height: min($size);
+        width: 100%;
+    
+        position: relative;
+    
+        &:focus-within {
+            border-color: $bg3-color-accent;
+        }
+        
+    
+        &__input {
+            color: $font3-color-third;
+            text-align: left;
+            padding-left: calc($size / 2.5);
+            height: fit-content;
+            width: 100%;
+            background-color: inherit;
+            border: none;
+            
+    
+            &:focus {
+                outline: 0;
+            }
+        }
+    
+        &__button {
+            height: fit-content;
+            background-color: transparent;
+            border: none;
+            margin-right: calc($size / 2);
+            cursor: pointer;
+        }
+    }
+}

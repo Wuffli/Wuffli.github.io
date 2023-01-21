@@ -14,6 +14,7 @@
           <div class="header" style="background-image: url( {{ "/assets/images/" | relative_url }}{% if page.header_img %}{{ page.header_img }}{% endif %}{% unless page.header_img %}default.jpg{% endunless %} );">
             {% include navigation.html %}
             {% include title.html %}
+            {% include searchbar.html %}
           </div>
       </header>
 
