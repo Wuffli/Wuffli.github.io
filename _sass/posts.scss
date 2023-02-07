@@ -9,22 +9,18 @@
         column-gap: .5rem;
         align-items: center;
         max-width: 33%;
-
-        & .tags {
-            overflow-x: scroll;
-            flex-wrap: nowrap !important;
-
-            
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-            &::-webkit-scrollbar {
-                display: hidden;
-            }
-        }
-        
-        & button {
-            font-size: x-small;
-        } 
     }
-    
 }
+
+.posts {
+
+    &.searchbar__results a h3::after {
+        background-color: $bg1-color-main;
+    }
+
+    &__title .date {
+        color: rgba($color: #000000, $alpha: .6);
+        font-size: small;
+    }
+}
+

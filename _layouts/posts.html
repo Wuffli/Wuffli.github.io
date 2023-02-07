@@ -5,12 +5,18 @@ layout: sidepanels
 <div class="metaData">
     <div class="metaData__author">{{ page.author }}</div>
     <div class="metaData__date">{{ page.date | date_to_string }}</div>
-    <div class="metaData__tags">
-        <div>
-            Tags:
+    {% if page.links %}
+        <div class="metaData__links">
+            <div>
+            {% for item in page.links %}
+                <a href="{{ item.link }}" target="_blank"><span>{{ item.name }}</span></a>
+                {% if forloop.last == false %}
+                    <span> | </span>
+                {% endif %}
+            {% endfor %}
+            </div>
         </div>
-        {% include tags.html %}
-    </div>
+    {% endif %}
 </div>
 <div class="horizontalLine">&nbsp;</div>
 {{ content }}

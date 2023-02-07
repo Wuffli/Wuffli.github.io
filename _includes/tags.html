@@ -1,17 +1,28 @@
 <div class="tags">
-    {% if page.layout == "home" or page.id == "search" %}
+    {% if page.layout == "home" or page.id == "search" or page.id == "feed" %}
         {% assign tagList = site.tags %}
     {% else %}
         {% assign tagList = page.tags %}
     {% endif %}
 
     {% for tag in tagList %}
+
+        {% if page.layout == "home" or page.id == "search" or page.id == "feed" %}
+            {% assign tagName = tag[0] %}
+        {% else %}
+            {% assign tagName = tag %}
+        {% endif %}
+
         <div>
-            <button>{% if page.layout == "home" or page.id == "search" %}
-            {{ tag[0] }}
-            {% else %}
-            {{ tag }}
-            {% endif %}</button>
+            {% if page.id != "search" %}
+            <a href="/search?tag={{ tagName }}">
+            {% endif %}
+                <button class="not-clicked" id="tag" tag="{{ tagName }}">
+                    {{ tagName }}
+                </button>
+            {% if page.id != "search" %}
+            </a>
+            {% endif %}
         </div>
     {% endfor %}
 </div>

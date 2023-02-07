@@ -8,6 +8,15 @@ layout: default
 <div class="sidepannel">
     <div class="horizontalLine">&nbsp;</div>
     {% include tags.html %}
+    <h3>
+        {% if page.id != "search" %}
+            {% if page.layout == "home"%}
+                Latest posts:
+            {% else %}
+                Similar posts:
+            {% endif %}
+        {% endif %}
+    </h3>
     {% include posts.html %}
     <div class="horizontalLine">&nbsp;</div>
 </div>
