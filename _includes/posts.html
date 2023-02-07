@@ -9,13 +9,14 @@
                 {% endif %}
             {% endfor %}
 
-            {% if isATagContained or page.layout == "home" %}
+            {% if isATagContained or page.layout == "home" or page.id == "feed" %}
                 <div class="posts__part">
-                    <a href="{{ post.url }}"> 
+                    <a href="{{ post.url }}" class="posts__title"> 
                         {% if post.title %} 
                             <h3>
                                 {{ post.title }}
                             </h3> 
+                            <p class="date">{{ post.date | date_to_string }}</p>
                         {% endif %}
                 
                         {% if post.description %} 
